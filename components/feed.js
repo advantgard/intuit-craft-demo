@@ -16,7 +16,7 @@ export const Post = ({
   className = "feed-post"
 }) => (
   <div className={`${className}__container`}>
-    <h2 className={`${className}__title`}>{title}</h2>
+    <h3 className={`${className}__title`}>{title}</h3>
     <span className={`${className}__author`}>{author}</span>
     <p className={`${className}__body`}>{body}</p>
   </div>
@@ -33,61 +33,84 @@ Post.propTypes = {
  * Creates the UI for creating a new post
  * @param onSubmit: The callback for the submit action
  * @param id: The id used for the elements of the form
+ * @param title: The title of the form
  * @param className: The prefixed class name for the component
  * @returns React: FunctionalComponent
  */
 
 export const CreatePost = ({
   onSubmit = () => {},
-  id = "create-post",
-  className = "create-post"
+  id = "feed-new-post",
+  title = "Add a new post",
+  className = "feed-new-post"
 }) => {
   return (
-    <form id={id} className={`${className}__container`}>
-      <div className={`${className}__user-wrapper`}>
-        <label className={`${className}__user-label`} htmlFor={`${id}-user`}>
-          User:
-        </label>
-        <input
-          type="text"
-          name={`${id}-user`}
-          className={`${className}__user-input`}
-        />
-      </div>
-      <div className={`${className}__title-wrapper`}>
-        <label className={`${className}__title-label`} htmlFor={`${id}-title`}>
-          Title:
-        </label>
-        <input
-          type="text"
-          name={`${id}-title`}
-          className={`${className}__title-input`}
-        />
-      </div>
-      <div className={`${className}__body-wrapper`}>
-        <label className={`${className}__body-label`} htmlFor={`${id}-body`}>
-          Content:
-        </label>
-        <textarea
-          name={`${id}-body`}
-          className={`${className}__body-textarea`}
-          cols="3"
-        />
-      </div>
-      <div className={`${className}__submit-wrapper`}>
-        <input
-          className={`${className}__submit-input`}
-          type="submit"
-          onClick={onSubmit}
-        />
-      </div>
-    </form>
+    <div className={`${className}__container`}>
+      <form id={id} className={`${className}__form`}>
+        <h2 className={`${className}__title`}>{title}</h2>
+        <div
+          className={`${className}__input-wrapper ${className}__user-wrapper`}
+        >
+          <label
+            className={`${className}__label ${className}__user-label`}
+            htmlFor={`${id}-user`}
+          >
+            User:
+          </label>
+          <input
+            type="text"
+            name={`${id}-user`}
+            className={`${className}__input--text ${className}__user-input`}
+          />
+        </div>
+        <div
+          className={`${className}__input-wrapper ${className}__title-wrapper`}
+        >
+          <label
+            className={`${className}__label ${className}__title-label`}
+            htmlFor={`${id}-title`}
+          >
+            Title:
+          </label>
+          <input
+            type="text"
+            name={`${id}-title`}
+            className={`${className}__input--text ${className}__title-input`}
+          />
+        </div>
+        <div
+          className={`${className}__input-wrapper ${className}__body-wrapper`}
+        >
+          <label
+            className={`${className}__label ${className}__body-label`}
+            htmlFor={`${id}-body`}
+          >
+            Content:
+          </label>
+          <textarea
+            name={`${id}-body`}
+            className={`${className}__input--textarea ${className}__body-textarea`}
+            rows="4"
+          />
+        </div>
+        <div
+          className={`${className}__input-wrapper ${className}__submit-wrapper`}
+        >
+          <input
+            className={`${className}__input--submit`}
+            type="submit"
+            onClick={onSubmit}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 
 CreatePost.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   id: PropTypes.string,
+  title: PropTypes.string,
   className: PropTypes.string
 };
 

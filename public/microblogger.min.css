@@ -38,8 +38,56 @@ body {
   .microblogger .feed-post__body {
     color: #333;
     line-height: 1.4; }
+  .microblogger .feed-new-post__container {
+    margin: 0.625em 0;
+    padding: 0 0.625em; }
+  .microblogger .feed-new-post__form {
+    padding: 0.875em;
+    margin-bottom: 0.625em;
+    background: #fff;
+    box-shadow: 0 1px 3px 0 #d4d4d5;
+    border-radius: 0.375em; }
+  .microblogger .feed-new-post__title {
+    font-size: 1.125em;
+    color: #7da5dc;
+    margin: 0.3125em 0; }
+  .microblogger .feed-new-post__input-wrapper {
+    margin: 0.9375em 0; }
+  .microblogger .feed-new-post__label {
+    display: block;
+    margin-bottom: 0.3125em; }
+  .microblogger .feed-new-post__input--text {
+    width: 100%;
+    padding: 0.625em 1.25em;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0.375em; }
+  .microblogger .feed-new-post__input--textarea {
+    width: 100%;
+    padding: 0.625em 1.25em;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0.375em; }
+  .microblogger .feed-new-post__submit-wrapper {
+    display: flex;
+    justify-content: flex-end; }
+  .microblogger .feed-new-post__input--submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #7da5dc;
+    color: #7da5dc;
+    font-weight: 600;
+    border-radius: 0.375em;
+    cursor: pointer;
+    padding: 0.9375em;
+    background: #fff; }
   @media screen and (min-width: 768px) {
     .microblogger .feed__container {
+      width: 750px;
+      margin: 0 auto; }
+    .microblogger .feed-new-post__container {
       width: 750px;
       margin: 0 auto; } }
 

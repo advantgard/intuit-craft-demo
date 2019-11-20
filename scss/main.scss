@@ -25,6 +25,15 @@ body {
   @include feed-post__title;
   @include feed-post__author;
   @include feed-post__body;
+  @include feed-new-post__container;
+  @include feed-new-post__form;
+  @include feed-new-post__title;
+  @include feed-new-post__input-wrapper;
+  @include feed-new-post__label;
+  @include feed-new-post__input-text;
+  @include feed-new-post__input--textarea;
+  @include feed-new-post__submit-wrapper;
+  @include feed-new-post__input--submit;
 
   // Styles for Modern Mobile Smart Phones (Extra Small Screens+)
   @media screen and (min-width: $screen-xs-min) {
@@ -33,6 +42,7 @@ body {
   // Styles for Mobile Tablet Portrait (Small Screens)
   @media screen and (min-width: $screen-sm-min) {
     @include feed__container--sm;
+    @include feed_new-post__container--sm;
   }
 
   // Styles for Low resolution displays (Medium Screens)
