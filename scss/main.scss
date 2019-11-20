@@ -1,20 +1,30 @@
 @import "variables";
 @import "mixins";
+@import "nav";
 @import "feed";
+
+body {
+  background-color: #eff5fc;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
 
 .microblogger {
   // Base setup
   font-size: #{$base-font-size}px;
   font-family: $base-font-family;
-  padding: 30px 0;
+  color: #333;
   -webkit-text-size-adjust: 100%;
   overflow: auto;
-  background-color: #fff;
 
+  @include site__header;
+  @include site__title;
   @include feed__container;
   @include feed-post__container;
   @include feed-post__title;
   @include feed-post__author;
+  @include feed-post__body;
 
   // Styles for Modern Mobile Smart Phones (Extra Small Screens+)
   @media screen and (min-width: $screen-xs-min) {

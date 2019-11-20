@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+@mixin site__header() {
+  .site__header {
+    background-color: #538cd3;
+    padding: em(10) 0;
+    margin-bottom: em(15);
+  }
+}
+
+@mixin site__title() {
+  .site__title {
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: em(18);
+  }
+}

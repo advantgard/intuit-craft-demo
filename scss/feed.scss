@@ -4,6 +4,7 @@
 @mixin feed__container() {
   .feed__container {
     margin: em(10) 0;
+    padding: 0 em(10);
   }
 }
 
@@ -18,15 +19,16 @@
   .feed-post__container {
     padding: em(14);
     margin-bottom: em(10);
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;;
-    border-radius: em(4);
+    background: #fff;
+    box-shadow: 0 1px 3px 0 #d4d4d5;
+    border-radius: em(6);
   }
 }
 
 @mixin feed-post__title() {
   .feed-post__title {
     font-size: em(18);
+    color: #7da5dc;
     margin: em(5) 0;
   }
 }
@@ -34,12 +36,13 @@
 @mixin feed-post__author() {
   .feed-post__author {
     margin: 0;
-    color: #707070;
+    color: #9ba8b9;
   }
 }
 
 @mixin feed-post__body() {
   .feed-post__body {
     color: #333;
+    line-height: 1.4;
   }
 }

@@ -1,24 +1,43 @@
+body {
+  background-color: #eff5fc;
+  border: 0;
+  padding: 0;
+  margin: 0; }
+
 .microblogger {
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-  padding: 30px 0;
+  color: #333;
   -webkit-text-size-adjust: 100%;
-  overflow: auto;
-  background-color: #fff; }
+  overflow: auto; }
+  .microblogger .site__header {
+    background-color: #538cd3;
+    padding: 0.625em 0;
+    margin-bottom: 0.9375em; }
+  .microblogger .site__title {
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.125em; }
   .microblogger .feed__container {
-    margin: 0.625em 0; }
+    margin: 0.625em 0;
+    padding: 0 0.625em; }
   .microblogger .feed-post__container {
     padding: 0.875em;
     margin-bottom: 0.625em;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
-    border-radius: 0.25em; }
+    background: #fff;
+    box-shadow: 0 1px 3px 0 #d4d4d5;
+    border-radius: 0.375em; }
   .microblogger .feed-post__title {
     font-size: 1.125em;
+    color: #7da5dc;
     margin: 0.3125em 0; }
   .microblogger .feed-post__author {
     margin: 0;
-    color: #707070; }
+    color: #9ba8b9; }
+  .microblogger .feed-post__body {
+    color: #333;
+    line-height: 1.4; }
   @media screen and (min-width: 768px) {
     .microblogger .feed__container {
       width: 750px;
