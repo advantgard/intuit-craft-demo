@@ -15,7 +15,7 @@ const Home = () => {
         <link rel="stylesheet" href="/microblogger.min.css" />
       </Head>
       <Nav />
-      <CreatePost onSubmit={() => {}} />
+      <CreatePost onSubmit={data => console.log(data) } />
       <Feed loading={loading} posts={feed} noFeedMessage="There are no posts" />
     </div>
   );

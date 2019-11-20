@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 /**
@@ -33,7 +33,7 @@ Post.propTypes = {
  * Creates the UI for creating a new post
  * @param onSubmit: The callback for the submit action
  * @param id: The id used for the elements of the form
- * @param title: The title of the form
+ * @param formTitle: The title of the form
  * @param className: The prefixed class name for the component
  * @returns React: FunctionalComponent
  */
@@ -41,13 +41,38 @@ Post.propTypes = {
 export const CreatePost = ({
   onSubmit = () => {},
   id = "feed-new-post",
-  title = "Add a new post",
+  formTitle = "Add a new post",
   className = "feed-new-post"
 }) => {
+  const [user, setUser] = useState("");
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [errors, setErrors] = useState(null);
+
+  function validateForm(e) {
+
+    e.preventDefault();
+
+    const validationErrors = {};
+
+    if (body.length < 10) {
+      validationErrors["body"] = "Length must be at least 10 characters long";
+    }
+
+    if(Object.keys(validationErrors).length) {
+      setErrors(validationErrors);
+    } else {
+      onSubmit({user, title, body});
+    }
+
+  }
+
+  console.log(errors);
+
   return (
     <div className={`${className}__container`}>
       <form id={id} className={`${className}__form`}>
-        <h2 className={`${className}__title`}>{title}</h2>
+        <h2 className={`${className}__title`}>{formTitle}</h2>
         <div
           className={`${className}__input-wrapper ${className}__user-wrapper`}
         >
@@ -59,9 +84,16 @@ export const CreatePost = ({
           </label>
           <input
             type="text"
+            value={user}
+            onChange={e => setUser(e.target.value)}
             name={`${id}-user`}
             className={`${className}__input--text ${className}__user-input`}
           />
+          <div
+            className={`${className}__input--error ${className}__user-input--error`}
+          >
+            {errors && errors["user"] ? errors["user"] : ""}
+          </div>
         </div>
         <div
           className={`${className}__input-wrapper ${className}__title-wrapper`}
@@ -74,9 +106,16 @@ export const CreatePost = ({
           </label>
           <input
             type="text"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
             name={`${id}-title`}
             className={`${className}__input--text ${className}__title-input`}
           />
+          <div
+            className={`${className}__input--error ${className}__title-input--error`}
+          >
+            {errors && errors["title"] ? errors["title"] : ""}
+          </div>
         </div>
         <div
           className={`${className}__input-wrapper ${className}__body-wrapper`}
@@ -88,10 +127,17 @@ export const CreatePost = ({
             Content:
           </label>
           <textarea
+            value={body}
+            onChange={e => setBody(e.target.value)}
             name={`${id}-body`}
             className={`${className}__input--textarea ${className}__body-textarea`}
             rows="4"
           />
+          <div
+            className={`${className}__input--error ${className}__body-textarea--error`}
+          >
+            {errors && errors["body"] ? errors["body"] : ""}
+          </div>
         </div>
         <div
           className={`${className}__input-wrapper ${className}__submit-wrapper`}
@@ -99,7 +145,7 @@ export const CreatePost = ({
           <input
             className={`${className}__input--submit`}
             type="submit"
-            onClick={onSubmit}
+            onClick={validateForm}
           />
         </div>
       </form>
@@ -110,7 +156,7 @@ export const CreatePost = ({
 CreatePost.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   id: PropTypes.string,
-  title: PropTypes.string,
+  formTitle: PropTypes.string,
   className: PropTypes.string
 };
 
