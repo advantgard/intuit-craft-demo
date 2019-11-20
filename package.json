@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest",
+    "sass": "sass --watch ./scss/main.scss:./public/microblogger.min.css"
   },
   "dependencies": {
     "next": "9.1.4",

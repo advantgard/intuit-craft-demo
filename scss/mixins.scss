@@ -1,0 +1,18 @@
+@import "variables";
+
+@function em($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin columns($columns, $spaceBetweenColumns: $columnMargin) {
+  @if $columns > 1 {
+    width: (100% / $columns) - $spaceBetweenColumns;
+    margin-right: $spaceBetweenColumns;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  } @else {
+    width: 100%;
+  }
+}

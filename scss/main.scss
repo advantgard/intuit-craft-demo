@@ -1,0 +1,35 @@
+@import "variables";
+@import "mixins";
+@import "feed";
+
+.microblogger {
+  // Base setup
+  font-size: #{$base-font-size}px;
+  font-family: $base-font-family;
+  padding: 30px 0;
+  -webkit-text-size-adjust: 100%;
+  overflow: auto;
+  background-color: #fff;
+
+  @include feed__container;
+  @include feed-post__container;
+  @include feed-post__title;
+  @include feed-post__author;
+
+  // Styles for Modern Mobile Smart Phones (Extra Small Screens+)
+  @media screen and (min-width: $screen-xs-min) {
+  }
+
+  // Styles for Mobile Tablet Portrait (Small Screens)
+  @media screen and (min-width: $screen-sm-min) {
+    @include feed__container--sm;
+  }
+
+  // Styles for Low resolution displays (Medium Screens)
+  @media screen and (min-width: $screen-md-min) {
+  }
+
+  // Styles for Low resolution displays (Large Screens)
+  @media screen and (min-width: $screen-lg-min) {
+  }
+}
