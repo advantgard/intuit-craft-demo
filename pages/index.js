@@ -1,18 +1,22 @@
 import React from "react";
 import Head from "next/head";
 import { Feed } from "../components/feed";
+import { useFeed } from "../hooks/useFeed";
 
-const dummyData = [{ userId: "User1", title: "This is a test", body: "Just testing"}];
+const Home = () => {
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>MicroBlogger - Feed</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <h1>Welcome to MicroBlogger</h1>
-    <Feed posts={dummyData} noFeedMessage="There are no posts" />
-  </div>
-);
+  const feed = useFeed();
+
+  return (
+    <div>
+      <Head>
+        <title>MicroBlogger - Feed</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <h1>Welcome to MicroBlogger</h1>
+      <Feed posts={feed} noFeedMessage="There are no posts" />
+    </div>
+  );
+};
 
 export default Home;

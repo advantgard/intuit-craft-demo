@@ -49,7 +49,7 @@ export const Feed = ({
     if (posts.length) {
       return posts.map(({ userId = "", title = "", body = "" }, index) => (
         <Post
-          author={userId}
+          author={`User ${userId}`}
           title={title}
           body={body}
           key={`${prefixKey}-${index}`}
