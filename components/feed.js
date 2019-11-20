@@ -33,6 +33,7 @@ Post.propTypes = {
 /**
  * Renders an array of posts using the Post component
  * @param posts: The data to be rendered
+ * @param loading: Flag to set if the data is still loading
  * @param prefixKey: A unique prefix key for this element, in case multiple feeds are rendered in the same page
  * @param className: A prefix for the class name of this component
  * @param noFeedMessage: The message to be shown to the user if there are no posts
@@ -41,12 +42,15 @@ Post.propTypes = {
  */
 export const Feed = ({
   posts = [],
+  loading = false,
   prefixKey = "post",
   className = "feed",
   noFeedMessage = ""
 }) => {
   function renderFeed() {
-    if (posts.length) {
+    if (loading) {
+      return "Loading...";
+    } else if (posts.length) {
       return posts.map(({ userId = "", title = "", body = "" }, index) => (
         <Post
           author={`@user${userId}`}
@@ -65,6 +69,7 @@ export const Feed = ({
 
 Feed.propTypes = {
   posts: PropTypes.array.isRequired,
+  loading: PropTypes.bool,
   prefixKey: PropTypes.string,
   className: PropTypes.string,
   noFeedMessage: PropTypes.string
