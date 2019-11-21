@@ -40,6 +40,7 @@ body {
   @include feed-new-post__input--submit;
   @include feed-new-post__textarea-counter;
   @include feed-new-post__input--error;
+  @include feed-new-post__success;
 
   // Styles for Modern Mobile Smart Phones (Extra Small Screens+)
   @media screen and (min-width: $screen-xs-min) {

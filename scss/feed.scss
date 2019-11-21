@@ -149,3 +149,11 @@
     font-size: em(14);
   }
 }
+
+@mixin feed-new-post__success() {
+  .feed-new-post__success:not(:empty) {
+    margin-bottom: em(10);
+    padding: em(20) 0;
+    text-align: center;
+  }
+}

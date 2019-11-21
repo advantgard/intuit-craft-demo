@@ -109,6 +109,10 @@ body {
     color: #f00;
     margin-top: 0.375em;
     font-size: 0.875em; }
+  .microblogger .feed-new-post__success:not(:empty) {
+    margin-bottom: 0.625em;
+    padding: 1.25em 0;
+    text-align: center; }
   @media screen and (min-width: 768px) {
     .microblogger .header__container {
       width: 750px;

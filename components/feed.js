@@ -33,6 +33,7 @@ Post.propTypes = {
  * Creates the UI for creating a new post
  * @param onSubmit: The callback for the submit action
  * @param id: The id used for the elements of the form
+ * @param success: Flag that indicates if the form was submitted successfully
  * @param formTitle: The title of the form
  * @param className: The prefixed class name for the component
  * @returns React: FunctionalComponent
@@ -41,6 +42,7 @@ Post.propTypes = {
 export const CreatePost = ({
   onSubmit = () => {},
   id = "feed-new-post",
+  success = false,
   formTitle = "Add a new post",
   className = "feed-new-post"
 }) => {
@@ -91,10 +93,11 @@ export const CreatePost = ({
     }
   }
 
-  console.log(errors);
-
   return (
     <div className={`${className}__container`}>
+      <div className={`${className}__success`}>
+        {success ? "The post was submitted successfully" : ""}
+      </div>
       <form id={id} className={`${className}__form`}>
         <h2 className={`${className}__title`}>{formTitle}</h2>
         <div
@@ -158,7 +161,7 @@ export const CreatePost = ({
             rows="4"
           />
           <div className={`${className}__textarea-counter`}>
-              {`Character count: ${body.length} / 110`}
+            {`Character count: ${body.length} / 110`}
           </div>
           <div
             className={`${className}__input--error ${className}__body-textarea--error`}
@@ -184,6 +187,7 @@ export const CreatePost = ({
 CreatePost.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   id: PropTypes.string,
+  success: PropTypes.bool,
   formTitle: PropTypes.string,
   className: PropTypes.string
 };
