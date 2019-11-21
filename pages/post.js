@@ -1,24 +1,13 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
 import { CreatePost } from "../components/feed";
+import { postData } from "../components/utils";
 import Nav from "../components/nav";
 
 const Post = () => {
-  const [success, setSuccess] = useState(false);
 
-  const postData = data => {
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.id) {
-          setSuccess(true);
-        }
-      });
-  };
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   return (
     <div className="microblogger">
@@ -28,7 +17,7 @@ const Post = () => {
         <link rel="stylesheet" href="/microblogger.min.css" />
       </Head>
       <Nav />
-      <CreatePost success={success} onSubmit={data => postData(data)} />
+      <CreatePost success={success} error={error} onSubmit={data => postData(data, setSuccess, setError)} />
     </div>
   );
 };

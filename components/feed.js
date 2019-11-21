@@ -34,6 +34,7 @@ Post.propTypes = {
  * @param onSubmit: The callback for the submit action
  * @param id: The id used for the elements of the form
  * @param success: Flag that indicates if the form was submitted successfully
+ * @param error: Flag that indicates if the form submission failed
  * @param formTitle: The title of the form
  * @param className: The prefixed class name for the component
  * @returns React: FunctionalComponent
@@ -43,6 +44,7 @@ export const CreatePost = ({
   onSubmit = () => {},
   id = "feed-new-post",
   success = false,
+  error = false,
   formTitle = "Add a new post",
   className = "feed-new-post"
 }) => {
@@ -97,6 +99,7 @@ export const CreatePost = ({
     <div className={`${className}__container`}>
       <div className={`${className}__success`}>
         {success ? "The post was submitted successfully" : ""}
+        {error ? "There was an error submitting your post" : ""}
       </div>
       <form id={id} className={`${className}__form`}>
         <h2 className={`${className}__title`}>{formTitle}</h2>
@@ -188,6 +191,7 @@ CreatePost.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   id: PropTypes.string,
   success: PropTypes.bool,
+  error: PropTypes.bool,
   formTitle: PropTypes.string,
   className: PropTypes.string
 };
