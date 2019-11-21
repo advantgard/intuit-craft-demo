@@ -58,33 +58,37 @@ export const CreatePost = ({
   }
 
   function validateForm(e) {
-
     e.preventDefault();
 
     const validationErrors = {};
 
-    if(user.length && !validateNumeric(user)) {
+    if (!user.length) {
+      validationErrors["user"] = "This field is required";
+    } else if (!validateNumeric(user)) {
       validationErrors["user"] = "Only numbers are allowed";
     }
 
-    if(title.length && !validateAlphanumeric(title)) {
+    if (!title.length) {
+      validationErrors["title"] = "This field is required";
+    } else if (!validateAlphanumeric(title)) {
       validationErrors["title"] = "Only alphanumerical characters are allowed";
     }
 
     if (body.length < 10) {
       validationErrors["body"] = "Length must be at least 10 characters long";
+    } else if (!validateAlphanumeric(body)) {
+      validationErrors["body"] = "Only alphanumerical characters are allowed";
     }
 
-    if(Object.keys(validationErrors).length) {
+    if (Object.keys(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      onSubmit({user, title, body});
+      onSubmit({ user, title, body });
       setUser("");
       setTitle("");
       setBody("");
       setErrors(null);
     }
-
   }
 
   console.log(errors);
@@ -153,10 +157,14 @@ export const CreatePost = ({
             className={`${className}__input--textarea ${className}__body-textarea`}
             rows="4"
           />
+          <div className={`${className}__textarea-counter`}>
+              {`Character count: ${body.length} / 110`}
+          </div>
           <div
             className={`${className}__input--error ${className}__body-textarea--error`}
           >
-            {errors && errors["body"] ? errors["body"] : ""}
+            <div>{body.length > 110 ? "The text is too long" : ""}</div>
+            <div>{errors && errors["body"] ? errors["body"] : ""}</div>
           </div>
         </div>
         <div

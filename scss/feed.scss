@@ -134,3 +134,18 @@
     background: #fff;
   }
 }
+
+@mixin feed-new-post__textarea-counter() {
+  .feed-new-post__textarea-counter {
+    color: #9ba8b9;
+    font-size: em(14);
+  }
+}
+
+@mixin feed-new-post__input--error() {
+  .feed-new-post__input--error {
+    color: #f00;
+    margin-top: em(6);
+    font-size: em(14);
+  }
+}

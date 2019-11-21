@@ -83,6 +83,13 @@ body {
     cursor: pointer;
     padding: 0.9375em;
     background: #fff; }
+  .microblogger .feed-new-post__textarea-counter {
+    color: #9ba8b9;
+    font-size: 0.875em; }
+  .microblogger .feed-new-post__input--error {
+    color: #f00;
+    margin-top: 0.375em;
+    font-size: 0.875em; }
   @media screen and (min-width: 768px) {
     .microblogger .feed__container {
       width: 750px;

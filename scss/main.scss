@@ -34,6 +34,8 @@ body {
   @include feed-new-post__input--textarea;
   @include feed-new-post__submit-wrapper;
   @include feed-new-post__input--submit;
+  @include feed-new-post__textarea-counter;
+  @include feed-new-post__input--error;
 
   // Styles for Modern Mobile Smart Phones (Extra Small Screens+)
   @media screen and (min-width: $screen-xs-min) {
