@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next build && next start",
+    "start": "next start -p 80",
+    "heroku-postbuild": "npm run build",
     "test": "jest",
     "sass": "sass --watch ./scss/main.scss:./public/microblogger.min.css"
   },
