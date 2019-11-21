@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { CreatePost, Feed } from "../components/feed";
+import { Feed } from "../components/feed";
 import { useFeed } from "../hooks/useFeed";
 import Nav from "../components/nav";
 
@@ -15,7 +15,6 @@ const Home = () => {
         <link rel="stylesheet" href="/microblogger.min.css" />
       </Head>
       <Nav />
-      <CreatePost onSubmit={data => console.log(data) } />
       <Feed loading={loading} posts={feed} noFeedMessage="There are no posts" />
     </div>
   );

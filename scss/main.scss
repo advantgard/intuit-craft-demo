@@ -1,6 +1,6 @@
 @import "variables";
 @import "mixins";
-@import "nav";
+@import "header";
 @import "feed";
 
 body {
@@ -18,8 +18,12 @@ body {
   -webkit-text-size-adjust: 100%;
   overflow: auto;
 
-  @include site__header;
-  @include site__title;
+  @include header__wrapper;
+  @include header__container;
+  @include header__title;
+  @include header__title-link;
+  @include header__nav;
+  @include header__nav-link;
   @include feed__container;
   @include feed-post__container;
   @include feed-post__title;
@@ -43,6 +47,7 @@ body {
 
   // Styles for Mobile Tablet Portrait (Small Screens)
   @media screen and (min-width: $screen-sm-min) {
+    @include header__container--sm;
     @include feed__container--sm;
     @include feed_new-post__container--sm;
   }

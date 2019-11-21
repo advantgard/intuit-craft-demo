@@ -10,15 +10,34 @@ body {
   color: #333;
   -webkit-text-size-adjust: 100%;
   overflow: auto; }
-  .microblogger .site__header {
+  .microblogger .header__wrapper {
     background-color: #538cd3;
     padding: 0.625em 0;
     margin-bottom: 0.9375em; }
-  .microblogger .site__title {
-    text-align: center;
-    color: #fff;
+  .microblogger .header__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.625em 0;
+    padding: 0 1.25em; }
+  .microblogger .header__title {
+    display: flex;
+    align-items: center;
+    text-align: left;
     font-weight: 400;
-    font-size: 1.125em; }
+    font-size: 1.375em; }
+  .microblogger .header__title-link {
+    text-decoration: none;
+    color: #fff; }
+  .microblogger .header__nav {
+    margin: 1em 0; }
+  .microblogger .header__nav-link {
+    color: #7da5dc;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0.625em 1.25em;
+    border-radius: 0.375em; }
   .microblogger .feed__container {
     margin: 0.625em 0;
     padding: 0 0.625em; }
@@ -91,6 +110,9 @@ body {
     margin-top: 0.375em;
     font-size: 0.875em; }
   @media screen and (min-width: 768px) {
+    .microblogger .header__container {
+      width: 750px;
+      margin: 0 auto; }
     .microblogger .feed__container {
       width: 750px;
       margin: 0 auto; }
