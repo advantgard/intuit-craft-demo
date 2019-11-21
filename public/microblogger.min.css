@@ -40,13 +40,31 @@ body {
     border-radius: 0.375em; }
   .microblogger .feed__container {
     margin: 0.625em 0;
-    padding: 0 0.625em; }
+    padding: 0 0.625em;
+    text-align: center; }
+  .microblogger .feed__spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top-color: #538cd3;
+    margin-top: 1.25em;
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite; }
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg); } }
   .microblogger .feed-post__container {
     padding: 0.875em;
     margin-bottom: 0.625em;
     background: #fff;
     box-shadow: 0 1px 3px 0 #d4d4d5;
-    border-radius: 0.375em; }
+    border-radius: 0.375em;
+    text-align: left; }
   .microblogger .feed-post__title {
     font-size: 1.125em;
     color: #7da5dc;

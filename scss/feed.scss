@@ -5,6 +5,7 @@
   .feed__container {
     margin: em(10) 0;
     padding: 0 em(10);
+    text-align: center;
   }
 }
 
@@ -15,6 +16,31 @@
   }
 }
 
+@mixin feed__spinner() {
+  .feed__spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    border-top-color: #538cd3;
+    margin-top: em(20);
+    animation: spin 1s ease-in-out infinite;
+    -webkit-animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}
+
 @mixin feed-post__container() {
   .feed-post__container {
     padding: em(14);
@@ -22,6 +48,7 @@
     background: #fff;
     box-shadow: 0 1px 3px 0 #d4d4d5;
     border-radius: em(6);
+    text-align: left;
   }
 }
 

@@ -25,6 +25,7 @@ body {
   @include header__nav;
   @include header__nav-link;
   @include feed__container;
+  @include feed__spinner;
   @include feed-post__container;
   @include feed-post__title;
   @include feed-post__author;

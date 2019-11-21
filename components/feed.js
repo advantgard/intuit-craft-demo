@@ -210,7 +210,7 @@ export const Feed = ({
 }) => {
   function renderFeed() {
     if (loading) {
-      return "Loading...";
+      return <div className="feed__spinner" />;
     } else if (posts.length) {
       return posts.map(({ userId = "", title = "", body = "" }, index) => (
         <Post
