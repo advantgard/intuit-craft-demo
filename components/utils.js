@@ -8,7 +8,7 @@ export function postData(data, callback, onError) {
     .then(res => res.json())
     .then(data => {
       if (data && data.id) {
-        callback(true);
+        callback(data);
       }
     })
     .catch(() => onError(true));

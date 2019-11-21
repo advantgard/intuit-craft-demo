@@ -98,7 +98,7 @@ export const CreatePost = ({
   return (
     <div className={`${className}__container`}>
       <div className={`${className}__success`}>
-        {success ? "The post was submitted successfully" : ""}
+        {success ? `The post was submitted successfully with post id: ${success.id}` : ""}
         {error ? "There was an error submitting your post" : ""}
       </div>
       <form id={id} className={`${className}__form`}>
