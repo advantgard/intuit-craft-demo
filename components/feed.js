@@ -87,7 +87,7 @@ export const CreatePost = ({
     if (Object.keys(validationErrors).length) {
       setErrors(validationErrors);
     } else {
-      onSubmit({ user, title, body });
+      onSubmit({ userId: user, title: title, body: body });
       setUser("");
       setTitle("");
       setBody("");
