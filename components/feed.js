@@ -49,11 +49,27 @@ export const CreatePost = ({
   const [body, setBody] = useState("");
   const [errors, setErrors] = useState(null);
 
+  function validateAlphanumeric(text) {
+    return text.match(/^[a-z0-9 ]+$/i);
+  }
+
+  function validateNumeric(text) {
+    return text.match(/^[0-9]+$/i);
+  }
+
   function validateForm(e) {
 
     e.preventDefault();
 
     const validationErrors = {};
+
+    if(user.length && !validateNumeric(user)) {
+      validationErrors["user"] = "Only numbers are allowed";
+    }
+
+    if(title.length && !validateAlphanumeric(title)) {
+      validationErrors["title"] = "Only alphanumerical characters are allowed";
+    }
 
     if (body.length < 10) {
       validationErrors["body"] = "Length must be at least 10 characters long";
@@ -63,6 +79,10 @@ export const CreatePost = ({
       setErrors(validationErrors);
     } else {
       onSubmit({user, title, body});
+      setUser("");
+      setTitle("");
+      setBody("");
+      setErrors(null);
     }
 
   }
