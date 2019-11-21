@@ -5,7 +5,7 @@ import { useFeed } from "../hooks/useFeed";
 import Nav from "../components/nav";
 
 const Home = () => {
-  const [feed, loading] = useFeed();
+  const [feed, loading, error] = useFeed();
 
   return (
     <div className="microblogger">
@@ -15,7 +15,7 @@ const Home = () => {
         <link rel="stylesheet" href="/microblogger.min.css" />
       </Head>
       <Nav />
-      <Feed loading={loading} posts={feed} noFeedMessage="There are no posts" />
+      <Feed error={error} loading={loading} posts={feed} noFeedMessage="There are no posts" />
     </div>
   );
 };

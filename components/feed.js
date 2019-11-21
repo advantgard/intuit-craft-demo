@@ -196,6 +196,7 @@ CreatePost.propTypes = {
  * Renders an array of posts using the Post component
  * @param posts: The data to be rendered
  * @param loading: Flag to set if the data is still loading
+ * @param error: Flag to set if there was errors on loading the data
  * @param prefixKey: A unique prefix key for this element, in case multiple feeds are rendered in the same page
  * @param className: A prefix for the class name of this component
  * @param noFeedMessage: The message to be shown to the user if there are no posts
@@ -204,6 +205,7 @@ CreatePost.propTypes = {
 export const Feed = ({
   posts = [],
   loading = false,
+  error = false,
   prefixKey = "post",
   className = "feed",
   noFeedMessage = ""
@@ -220,6 +222,8 @@ export const Feed = ({
           key={`${prefixKey}-${index}`}
         />
       ));
+    } else if (error) {
+      return "There was an error loading your feed";
     } else {
       return noFeedMessage;
     }
@@ -231,6 +235,7 @@ export const Feed = ({
 Feed.propTypes = {
   posts: PropTypes.array.isRequired,
   loading: PropTypes.bool,
+  error: PropTypes.bool,
   prefixKey: PropTypes.string,
   className: PropTypes.string,
   noFeedMessage: PropTypes.string
