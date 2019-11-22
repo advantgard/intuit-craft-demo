@@ -12,6 +12,14 @@ Twitter clone for Intuit interview
 </div>
 <br/>
 <p>
+  To run tests, run:
+</p>
+
+<div>
+  <code>npm run test</code><br/>
+</div>
+<br/>
+<p>
   A live version of the app can be found in the following URL. The first load will be slow because the app is hosted in Heroku on a free dynamo, that wakes up only when the URL is requested.
 </p>
 
